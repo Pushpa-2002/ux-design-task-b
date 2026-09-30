@@ -1,26 +1,53 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans:
+    "Oakes Grotesk", var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-brand:
+    "Nohemi", var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: #1a1a1a;
+  --color-card: #ffffff;
+  --color-card-ink: #0a0a0a;
+  --color-card-muted: #4b5563;
+  --color-cta: #1253ed;
+  --color-cta-hover: #0f47c7;
+  --color-highlight: #facc15;
+  --color-success: #16a34a;
+  --color-feature: #dc2626;
+  --color-feature-soft: #fecdd3;
+  --color-divider: #e5e7eb;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  background-color: var(--color-canvas);
+  color: #ffffff;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Figma text styles */
+.text-h1 {
+  font: 500 36px/1.4 var(--font-sans);
+  letter-spacing: 0;
+}
+.text-display {
+  font: 700 52px/1.2 var(--font-sans);
+  letter-spacing: -0.01em;
+}
+.text-brand {
+  font: 700 32px/1.2 var(--font-brand);
+}
+
+/* Carousel scrollbar */
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
