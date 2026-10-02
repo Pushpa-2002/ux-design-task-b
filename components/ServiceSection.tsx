@@ -1,7 +1,7 @@
 import Image from "next/image";
 import SectionLabel from "./SectionLabel";
-
-const HEADINGS = ["UI & UX", "Development", "Blockchain"];
+import HeadingRotator from "./HeadingRotator";
+import ImageCarousel from "./ImageCarousel";
 
 const IMAGES = [
   { src: "/service-laptop.png", alt: "Workspace with laptop" },
@@ -22,61 +22,34 @@ export default function ServiceSection() {
     <section>
       <SectionLabel>service</SectionLabel>
 
-      <div className="rounded-2xl bg-card p-8 text-card-ink sm:p-10">
-        {/* Top row */}
-        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between">
-          <div className="max-w-md">
-            <p className="text-base leading-relaxed sm:text-lg">
+      <div className="rounded-2xl bg-card p-8 text-card-ink sm:p-10 lg:p-14">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-around w-[1218px] h-[306px] py-2">
+          <div className="w-304.5">
+            <p className="text-wrap! w-[625px] text-4xl! font-medium!  sm:text-lg">
               Experience our expert solutions tailored to enhance your business
               with top-tier design, development, and animation.
             </p>
-            <button
-              type="button"
-              className="mt-6 inline-flex items-center gap-2.5 rounded-full bg-cta px-5 py-3.5 text-sm font-medium text-white transition-colors hover:bg-cta-hover"
-            >
-              Contact
+            <button className="mt-5 inline-flex items-center gap-2.5 rounded-full bg-cta px-5 py-3.5 text-sm font-medium text-white transition-colors hover:bg-cta-hover">
+              Services
             </button>
           </div>
-
-          <ul className="text-h1 flex flex-col gap-1 lg:text-right">
-            {HEADINGS.map((h) => (
-              <li key={h}>{h}</li>
-            ))}
-          </ul>
+          <HeadingRotator />
         </div>
 
-        {/* Image carousel */}
-        <div className="scrollbar-hide mt-12 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2">
-          {IMAGES.map((img, i) => (
-            <div
-              key={i}
-              className="relative h-[400px] w-[80%] shrink-0 snap-start overflow-hidden rounded-[21px] sm:h-[500px] md:h-[569px] md:w-[1012px]"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                fill
-                sizes="1012px"
-                className="object-cover"
-              />
-            </div>
-          ))}
-        </div>
+        <ImageCarousel items={IMAGES} />
 
-        {/* Divider */}
         <div className="mt-14 h-[7px] rounded-full bg-divider" />
 
-        {/* Partners */}
         <div className="mt-10">
           <p className="text-center text-xs text-card-muted">Our Partners</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-8 sm:gap-14">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-10 sm:gap-16">
             {PARTNERS.map((p) => (
-              <div key={p.name} className="relative h-8 w-24 opacity-80">
+              <div key={p.name} className="relative h-10 w-28 opacity-80">
                 <Image
                   src={p.src}
                   alt={p.name}
                   fill
-                  sizes="96px"
+                  sizes="112px"
                   className="object-contain"
                 />
               </div>
